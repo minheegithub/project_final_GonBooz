@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.board_wrap {
+	padding: 50px;
+	width: 700px;
+	background-color: #F7F7F7;
+	box-shadow: 2px 5px 16px -5px, 5px 5px 15px -5px rgba(0, 0, 0, 0);
+	border-radius: 4px;
+	margin: 50px auto;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.replyWrite {
+	border-top: 2px solid #000;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.replyWrite .reply_writer {
+	padding: 4px 15px;
+	border-bottom: 1px solid #000;
+}
+
+.replyWrite .reply_writer dt, .replyWrite .reply_writer dd {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+.replyWrite .reply_writer dt {
+	width: 100px;
+}
+
+.replyWrite .reply_content {
+	border-bottom: 1px solid #000;
+}
+
+.replyWrite .reply_content textarea {
+	display: block;
+	width: 100%;
+	height: 70px;
+	padding: 15px;
+	box-sizing: border-box;
+	border: 0;
+	resizing: vertical;
+	font-size: 12px;
+	background: transparent;
+}
+
+.update_btn {
+	background-color: #3c3a3a;
+	color: white;
+	/*테두리없음*/
+	border: none;
+	width: 35px;
+	height: 26px;
+	border-radius: 2px;
+	font-size: 12px;
+}
+
+.update_btn:hover {
+	background-color: #4C4C4C;
+}
+
+.cancel_btn {
+	background-color: #3c3a3a;
+	color: white;
+	/*테두리없음*/
+	border: none;
+	width: 35px;
+	height: 26px;
+	border-radius: 2px;
+	font-size: 12px;
+}
+
+.cancel_btn:hover {
+	background-color: #4C4C4C;
+}
+
+.bt_wrap a {
+	min-width: 40px;
+	padding: 4px;
+	border: 1px solid #3c3a3a;
+	font-size: 12px;
+	background: #3c3a3a;
+	color: white;
+	border-radius: 2px;
+}
+
+.bt_wrap a:hover {
+	background-color: #4C4C4C;
+	color: #fff;
+	text-decoration-line: none;
+}
+
+@font-face {
+	font-family: 'title';
+	src: url("${pageContext.request.contextPath}/resources/MindFont.otf")
+		format('opentype');
+}
+
+.gongbooz {
+	font-family: 'title', cursive;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+}

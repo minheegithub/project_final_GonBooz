@@ -1,0 +1,410 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* a 태그에  마우스 올렸을 때   */
+A:link {
+	text-decoration: none;
+	color: #000080
+}
+
+A:visited {
+	text-decoration: none;
+	color: #000080
+}
+
+A:active {
+	text-decoration: none;
+	color: #000080
+}
+
+A:hover {
+	text-decoration: none;
+	color: #529CFF
+}
+
+.board_wrap {
+	padding: 50px;
+	width: 700px;
+	background-color: #F7F7F7;
+	margin-top: 50px;
+	margin-left: 50px;
+	border-radius: 4px;
+	margin: 0 auto;
+	box-shadow: 2px 5px 16px -5px, 5px 5px 15px -5px rgba(0, 0, 0, 0);
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+header {
+	margin-bottom: 10px;
+}
+
+ul, li {
+	list-style: none;
+}
+
+.board_view {
+	width: 700px;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+	border-collapse: separate;
+	border-radius: 4px;
+}
+
+.board_view .title {
+	padding: 7px 15px;
+	border-bottom: 1px dashed #999;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.board_view .info {
+	padding: 7px 15px;
+	border-bottom: 1px solid #999;
+	font-size: 0; /*????  */
+}
+
+.board_view .info dl {
+	position: relative;
+	display: inline-block;
+	padding: 0 20px;
+}
+
+.board_view .info dl:first-child {
+	padding-left: 0;
+}
+
+.board_view .info dl::before {
+	content: "";
+	position: absolute;
+	top: 4px;
+	left: 0;
+	display: block;
+	width: 1px;
+	height: 10px;
+	background: #ddd;
+}
+
+.board_view .info dl:first-child::before {
+	display: none;
+}
+
+.board_view .info dl dt, .board_view .info dl dd {
+	display: inline-block;
+	font-size: 12px;
+}
+
+.board_view .info dl dd {
+	margin-left: 10px;
+	color: #3c3a3a;
+}
+
+.board_view .cont {
+	padding: 15px;
+	/* border-bottom: 2px solid #000; */
+	line-height: 160%;
+	font-size: 12px;
+}
+
+.modify_btn {
+	background-color: #3c3a3a;
+	color: white;
+	/*테두리없음*/
+	border: none;
+	width: 40px;
+	height: 24px;
+	border-radius: 2px;
+}
+
+.delete_btn {
+	background-color: #3c3a3a;
+	color: white;
+	/*테두리없음*/
+	border: none;
+	width: 40px;
+	height: 24px;
+	border-radius: 2px;
+}
+
+.delete_btn:hover {
+	background-color: #4C4C4C;
+}
+
+.list_btn {
+	background-color: #3c3a3a;
+	color: white;
+	/*테두리없음*/
+	border: none;
+	width: 40px;
+	height: 24px;
+	border-radius: 2px;
+	font-size: 12px;
+}
+
+.list_btn:hover {
+	background-color: #4C4C4C;
+}
+
+.btns {
+	margin-top: 7px;
+	text-align: right;
+	margin-bottom: 17px;
+}
+
+.replyWrite {
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	border-radius: 2px;
+}
+
+.replyWrite .reply_writer {
+	padding: 4px 15px;
+	border-bottom: 1px dashed #999;
+}
+
+.replyWrite .reply_writer dt, .replyWrite .reply_writer dd {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+.replyWrite .reply_writer dt {
+	width: 100px;
+}
+
+.replyWrite .reply_writer input[type="text"] {
+	width: 300px;
+	padding: 4px;
+	box-sizing: border-box;
+	font-size: 10px;
+	border: none;
+	background-color: #F7F7F7;
+}
+
+.replyWrite .reply_content textarea {
+	display: block;
+	width: 100%;
+	height: 66px;
+	padding: 14px;
+	box-sizing: border-box;
+	border: 0;
+	resizing: vertical;
+	font-size: 12px;
+	background: transparent;
+}
+
+.replyWriteBtn {
+	background-color: #3c3a3a;
+	color: white;
+	/*테두리없음*/
+	border: none;
+	width: 70px;
+	height: 24px;
+	border-radius: 2px;
+	font-size: 12px;
+}
+
+.replyWriteBtn:hover {
+	background-color: #4C4C4C;
+}
+
+.replyWbtn {
+	text-align: right;
+	margin-top: 7px;
+	margin-bottom: 17px;
+}
+
+.replyWbtn1 {
+	margin-left: 170px;
+}
+
+.replyViewWrap {
+	margin-top: 4px;
+	border-top: 1px solid #999;
+	border-radius: 2px;
+}
+
+.replyView {
+	border-bottom: 1px solid #999;
+}
+
+.replyView .info {
+	padding-top: 10px;
+	padding-bottom: 7px;
+	padding-left: 7px;
+	font-size: 0;
+}
+
+.replyView .info dl {
+	padding-left: 0;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 30px;
+}
+
+.replyView .info dl:first-child {
+	padding-left: 0;
+}
+
+.replyView .info dl:first-child::before {
+	display: none;
+}
+
+.replyView .info dt, .replyView .info dd {
+	display: inline-block;
+	font-size: 12px;
+}
+
+.replyView .info dl dd {
+	margin-left: 30px;
+	color: #3c3a3a;
+}
+
+.replyView .replyViewContent {
+	padding-left: 37px;
+	padding-bottom: 20px;
+	padding-top: 7px;
+	line-height: 60%;
+	font-size: 12px;
+	color: #3c3a3a;
+	font-weight: bold;
+}
+
+.replyUpdateBtn {
+	background-color: #3c3a3a;
+	color: #fff;
+	/*테두리없음*/
+	border: none;
+	width: 30px;
+	height: 20px;
+	border-radius: 2px;
+	font-size: 10px;
+}
+
+.replyUpdateBtn:hover {
+	background-color: #4C4C4C;
+}
+
+.replyDeleteBtn {
+	background-color: #3c3a3a;
+	/*테두리없음*/
+	border: none;
+	width: 30px;
+	height: 20px;
+	border-radius: 2px;
+	font-size: 10px;
+	color: #fff;
+}
+
+.replyDeleteBtn:hover {
+	background-color: #4C4C4C;
+}
+
+.btn_btn-light {
+	background-color: #ddd;
+	margin-left: 7px;
+	width: 40px;
+	border-radius: 20px;
+}
+
+.btn_btn-light:active {
+	margin-left: 5px;
+	margin-top: 5px;
+	box-shadow: none;
+}
+
+.btn_btn-light:hover {
+	background-color: white;
+}
+
+.btn_btn-danger {
+	background-color: #E4F7BA;
+	margin-left: 7px;
+	width: 70px;
+	border-radius: 20px;
+}
+
+.btn_btn-danger:active {
+	margin-left: 5px;
+	margin-top: 5px;
+	box-shadow: none;
+}
+
+.btn_btn-danger:hover {
+	background-color: white;
+}
+
+@font-face {
+	font-family: 'title';
+	src: url("${pageContext.request.contextPath}/resources/MindFont.otf")
+		format('opentype');
+}
+
+.gongbooz {
+	font-family: 'title', cursive;
+	font-size: 30px;
+	text-align: center;
+}
+
+#new {
+	background-color: #FF7012;
+	color: #fff;
+	border-radius: 70px;
+	font-size: 1px;
+}
+
+.board_name {
+	font-size: 21px;
+	text-align: center;
+	margin-bottom: 17px;
+	margin-top: 14px;
+	font-family: 'Poor Story', cursive;
+}
+
+.img {
+	width: 20px;
+	margin-left: 340px;
+}
+
+.img img {
+	display: block;
+	width: 100%;
+	border-radius: 3px;
+}
+
+#likecount{
+	color:red;
+	font-weight:bold;
+	font-size:14px;
+}
+
+.likeWrap{
+	text-align:center;
+}
+
+.likeWrap #like2{
+	margin-top:4px;
+	background:transparent;
+	border:1px solid #3c3a3a; 
+	border-radius:300px;
+	width:60px
+}
+.likeWrap #like2:hover{
+	border:1px solid #3c3a3a;
+	border-radius:300px;
+	width:60px;
+	background-color:#3c3a3a;
+}

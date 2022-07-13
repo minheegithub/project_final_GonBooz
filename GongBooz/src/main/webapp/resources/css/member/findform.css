@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap')
+	;
+
+@font-face {
+	font-family: 'ChosunSg';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunSg.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'title';
+	src: url("${pageContext.request.contextPath}/resources/MindFont.otf")
+		format('opentype');
+}
+
+* {
+	font-family: 'ChosunSg';
+}
+
+#findWrap {
+	width: 800px;
+	margin: 170px auto;
+}
+
+.findpw {
+	width: 300px;
+	background: transparent;
+	padding: 30px;
+	box-shadow: 2px 5px 16px 0px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+	border-radius: 4px;
+	float: left;
+	border: 1px solid #ddd;
+}
+
+.findid {
+	width: 300px;
+	background: transparent;
+	padding: 30px;
+	box-shadow: 2px 5px 16px 0px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+	border-radius: 4px;
+	float: right;
+	border: 1px solid #ddd;
+}
+
+.input {
+	border: none;
+	border-bottom: 1px solid #ddd;
+	width: 290px;
+	height: 30px;
+	border: none;
+	background: transparent;
+	color: white;
+	font-size: 14px;
+	border-bottom: 1px solid #ffffff;
+}
+
+.btn {
+	width: 290px;
+	height: 30px;
+	background-color: #FFFFFF;
+	border: none;
+	border-radius: 4px;
+	font-weight: bold;
+	color: #4C4C4C;
+}
+
+.btn1 {
+	width: 290px;
+	height: 30px;
+	margin-top: 17px;
+	background-color: #FFFFFF;
+	border: none;
+	border-radius: 4px;
+	font-weight: bold;
+	color: #4C4C4C;
+}
+
+.btn:hover {
+	background-color: #E1E1E1;
+}
+
+.btn1:hover {
+	background-color: #E1E1E1;
+}
+
+.welcome {
+	text-align: center;
+	color: #ffffff;
+}
+
+label {
+	color: #ffffff;
+}
+
+.logo {
+	color: #ffffff;
+	text-align: center;
+	margin-bottom: 70px;
+}
+
+.gongbooz {
+	color: #ffffff;
+	margin-bottom: 70px;
+	margin-top: 40px;
+	font-family: 'title', cursive;
+	font-size: 40px;
+}

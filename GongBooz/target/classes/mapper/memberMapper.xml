@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gb.wn.main.DAO.MemberDAO">
+	
+	<!--회원가입  -->
+	<insert id="register">
+	    INSERT INTO GB_MEMBER(   MEMBERMAIL
+	    					   , USERID 
+	   					       , USERPASS 
+	   					       , USERNAME 	)
+	                  VALUES(    #{membermail}
+	                  		   , #{userid} 
+	                 		   , #{userpass}
+	                 		   , #{username})
+    </insert>
+    
+    <!-- 로그인 -->
+	<select id="getUserInfo" resultType="com.gb.wn.main.member.memberVO.MemberVO">
+		SELECT MEMBERMAIL, USERID, USERPASS, USERNAME, REGDATE
+		  FROM GB_MEMBER
+		 WHERE USERID = #{userid}
+	</select>
+
+	<!-- 회원정보 수정 -->
+	<update id="memberUpdate">
+		UPDATE GB_MEMBER SET 
+		USERPASS = #{userpass}, 
+		USERNAME = #{username},
+		MEMBERMAIL = #{membermail}
+		WHERE USERID = #{userid}
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="memberDelete">
+		DELETE FROM GB_MEMBER
+		WHERE USERID = #{userid}
+	</delete>
+
+	<!-- 아이디 중복 체크 -->
+	<select id="idChk" resultType="int">
+		SELECT COUNT(*) FROM GB_MEMBER
+		WHERE USERID = #{userid}
+	</select>
+	
+ 	<!-- 비밀번호 변경 -->
+	<update id="update_pw" parameterType="com.gb.wn.main.member.memberVO.MemberVO">
+		update gb_member set userpass = #{userpass} where userid = #{userid}
+	</update>
+	
+	<select id="emailfind" resultType="com.gb.wn.main.member.memberVO.MemberVO">
+		SELECT MEMBERMAIL
+		  FROM GB_MEMBER
+		 WHERE USERID = #{userid}
+	</select>
+	
+	<!-- 아이디 찾기 -->
+	 <select id="find_id" parameterType="String" resultType="com.gb.wn.main.member.memberVO.MemberVO">
+		select userid from gb_member where membermail = #{membermail}
+	</select>
+	 
+	<!-- 이메일 중복 검사 -->
+	<select id="check_email" parameterType="String" resultType="int">
+		select count(*) from gb_member where membermail = #{membermail}
+	</select>
+	
+
+</mapper>

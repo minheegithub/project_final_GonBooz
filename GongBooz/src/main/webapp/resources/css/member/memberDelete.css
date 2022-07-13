@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap')
+	;
+
+@font-face {
+	font-family: 'ChosunSg';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunSg.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'title';
+	src: url("${pageContext.request.contextPath}/resources/MindFont.otf")
+		format('opentype');
+}
+
+* {
+	font-family: 'ChosunSg';
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+h1 {
+	color: #ffffff;
+	margin-bottom: 40px;
+	font-family: 'Ephesis', cursive;
+	font-size: 40px;
+}
+
+.joinWrap {
+	margin: 30px auto;
+	/*가로너비*/
+	width: 730px;
+	/*높이만큼 늘어남*/
+	overflow: hidden;
+	padding-bottom: 100px;
+	/*글자의 정렬*/
+	text-align: center; /*box안에 인라인 요소들 가운데 정렬?  */
+}
+
+.join {
+	margin: 0 auto;
+	width: 700px;
+	border: 1px solid #ddd;
+	padding-top: 30px;
+	padding-bottom: 70px;
+	overflow: hidden;
+	border-radius: 4px;
+	box-shadow: 2px 5px 16px 0px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.bye {
+	font-size: 21px;
+	color: #ffffff;
+	margin-top: 30px;
+	margin-bottom: 17px;
+}
+
+.btn {
+	/*가로너비*/
+	width: 170px;
+	/*세로높이*/
+	height: 30px;
+	/*글자크기*/
+	font-size: 14px;
+	/*글자색상*/
+	color: black;;
+	/*배경색상*/
+	background-color: #FFFFFF;
+	/*테두리없음*/
+	border: none;
+	border-radius: 4px;
+	margin-top: 30px;
+	font-weight: bold;
+}
+
+.btn:hover {
+	background-color: #E1E1E1;
+}
+
+.gongbooz {
+	color: #ffffff;
+	margin-bottom: 40px;
+	margin-top: 40px;
+	font-family: 'title', cursive;
+	font-size: 40px;
+	text-align: center;
+}
+
+.message {
+	color: #fff;
+	margin-top: 20px;
+}
+
+.Q {
+	color: #fff;
+	margin-top: 70px;
+}
+
+.table {
+	margin-left: 140px;
+	border: 1px solid #ddd;
+	border-collapse: separate;
+	border-radius: 4px;
+	margin-top: 30px;
+}
+
+.table th, .table td {
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: 14px;
+	color: #ffffff;
+}
+
+.table th {
+	text-align: center;
+	width: 100px;
+	font-weight: bold;
+	color: white;
+	border-right: 1px solid #ddd;
+}
+
+.table td {
+	width: 300px;
+}
+
+label {
+	font-size: 14px;
+}
+
+.pw {
+	border: none;
+	background: transparent;
+	width: 200px;
+	/*세로높이*/
+	height: 30px;
+	/*안쪽여백*/
+	padding-left: 20px;
+	padding-right: 20px;
+	color: white;
+	font-size: 12px;
+	border-bottom: 1px solid #ffffff;
+}
+
+.pw::placeholder {
+	color: #ddd;
+}

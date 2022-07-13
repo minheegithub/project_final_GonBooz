@@ -1,0 +1,239 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+@font-face {
+	font-family: 'ChosunSg';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunSg.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+li {
+	list-style: none;
+	float: left;
+	padding: 6px;
+}
+
+* {
+	font-family: 'ChosunSg';
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+}
+
+table {
+	border-collapse: collapse;
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+/* a 태그에  마우스 올렸을 때   */
+A:hover {
+	text-decoration: none;
+	color: #D9E5FF
+}
+
+/* 상하좌우 전부 안쪽 여백 주기 */
+#root {
+	padding: 50px;
+	width: 770px;
+	border-radius: 4px;
+	margin: 30px auto;
+	height: 520px;
+	height: auto;
+	background: none;
+	border: 1px solid #ddd;
+	box-shadow: 2px 5px 16px 0px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+	padding-bottom: 70px;
+	backgroun-color:red;
+}
+
+.head {
+	margin-bottom: 10px;
+	color: white;
+}
+
+.boardlist_wrap {
+	width: 770px;
+	margin: 0px auto;
+	color: white;
+	backgroun-color:red;
+}
+
+.board_list {
+	width: 746px;
+	/* 표 자체에 border-top주기  */
+	border-bottom: 2px solid #ddd;
+	border-top: 2px solid #ddd;
+	border-collapse: separate;
+	border-radius: 4px;
+}
+
+.board_list th {
+	color: black;
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.board_list th, .board_list td {
+	padding: 7px;
+}
+
+/* 리스트 전체 가운데 정렬 */
+.board_list td {
+	text-align: center;
+}
+
+/* 제목만 왼쪽 정렬 */
+.board_list .tit {
+	text-align: left;
+}
+
+.board_list .rep {
+	font-size: 13px;
+}
+
+.container {
+	position: relative;
+}
+
+.paging {
+	width: 500px;
+	font-size: 12px;
+}
+
+.paging ul li {
+	border: 1px solid gray;
+	height: 12px;
+	width: 14px;
+	padding-top: 2px;
+	padding-right: 2px;
+	margin-right: 1px;
+	margin-top: 10px;
+	border-radius: 2px;
+}
+
+.search {
+	margin-bottom: 7px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.search option {
+	color: black;
+}
+
+.searchT {
+	text-align: center;
+	width: 70px;
+	height: 21px;
+	border-radius: 4px;
+	background: transparent;
+	border: 1px solid #ddd;
+	color: white;
+}
+
+#searchBtn {
+	/*테두리없음*/
+	border: none;
+	width: 40px;
+	height: 21px;
+	border-radius: 4px;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.5);
+	font-weight: bold;
+}
+
+#searchBtn:hover {
+	background-color: #fff;
+}
+
+#keywordInput {
+	width: 300px;
+	height: 17px;
+	border-radius: 4px;
+	background: transparent;
+	border: 1px solid #ddd;
+	color: white;
+}
+
+.btn1 {
+	font-weight: bold;
+}
+
+.btn2 {
+	font-weight: bold;
+}
+
+.btn_bottom {
+	margin-top: 4px;
+	font-size: 13px;
+	width: 740px;
+}
+
+.btn_bottom .btn_list {
+	text-align: left;
+}
+
+.btn_bottom .btn_write {
+	text-align: right;
+}
+
+.b_hover:hover {
+	background-color: #ddd;
+}
+
+@font-face {
+	font-family: 'title';
+	src: url("${pageContext.request.contextPath}/resources/MindFont.otf")
+		format('opentype');
+}
+
+.gongbooz {
+	font-family: 'title', cursive;
+	font-size: 30px;
+	text-align: center;
+}
+
+#new {
+	background-color: #FF7012;
+	color: #fff;
+	font-size: 1px;
+}
+
+.board_name {
+	font-size: 21px;
+	text-align: center;
+	margin-bottom: 17px;
+	margin-top: 14px;
+	font-family: 'Poor Story', cursive;
+	color: #fff;
+}
+
+.q {
+	font-family: 'Poor Story', cursive;
+	margin-bottom: 2px;
+	font-weight: bold;
+}
+
+.img {
+	width: 70px;
+	margin-left: 350px;
+}
+
+.img img {
+	display: block;
+	width: 100%;
+	border-radius: 3px;
+}
+
+.gongzi {
+	width: 1px;
+}

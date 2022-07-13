@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper interface: dao interface 경로를 namespace로  -->
+<!--mybatis-cofing.xml에서 StudyVO alias 지정  -->
+<mapper namespace="com.gb.wn.main.DAO.StudyDAO">
+	<!--모든 스터디 목록을 보는 스터디 모집 메인 페이지 화면  -->
+
+	<select id="getAllStudy" resultType="StudyVO">
+	SELECT * FROM STUDYROOM1 order by SNO DESC
+	</select>
+	
+	<!--스터디 지역으로 검색 -->
+
+	<select id="getStudy_region" resultType="StudyVO">
+		SELECT *
+		FROM STUDYROOM1 where region like '%' || #{region} || '%' order by SNO DESC
+	</select>
+	
+	<!--스터디 태그로 검색 -->
+
+	<select id="getStudy_tag" resultType="StudyVO">
+		SELECT *
+		FROM STUDYROOM1 where study_tag like '%' || #{study_tag} || '%' order by SNO DESC
+	</select>
+	<!--스터디 이름으로 검색  -->
+	
+	<select id="getStudy_name" resultType="StudyVO">
+		SELECT *
+		FROM STUDYROOM1 where study_name like '%' || #{study_name} || '%' order by SNO DESC
+	</select>
+	
+	
+	<!--스터디방 개설  -->
+	<!--iBatis :#name#  -->
+
+	<insert id="insertStudy" parameterType="StudyVO" useGeneratedKeys="true" keyProperty="sno">
+	  <selectKey keyProperty="sno" resultType="int" order="BEFORE">
+	    	SELECT STUDYROOM_SEQ.NEXTVAL FROM DUAL
+	  </selectKey>
+	 
+	 INSERT INTO STUDYROOM1(SNO,OPEN_ID,STUDY_NAME,STUDY_TAG, REGION, MAX_NUMBER)
+	 VALUES (#{sno},#{open_id},#{study_name},#{study_tag},#{region},#{max_number}) 
+	</insert>
+	
+		
+	<!--특정 스터디를 삭제한다. -->
+	<delete id="deleteStudy">
+	delete from STUDYROOM1 where sno=#{sno}
+	</delete>
+
+	<update id="updateStudy" >
+	UPDATE STUDYROOM1 SET STUDY_MEMBER = CONCAT(STUDY_MEMBER, CONCAT('/', #{study_member})),CUR_NUMBER = CUR_NUMBER + 1 WHERE sno=#{sno} 
+	</update> 
+	
+	<update id="outStudy" >
+	UPDATE STUDYROOM1 SET STUDY_MEMBER = #{study_member},CUR_NUMBER = CUR_NUMBER - 1 WHERE sno=#{sno} 
+	</update> 
+ 
+	
+	<!--하나의 스터디룸에 접근  -->
+	 <select id="getStudyRoom" resultType="StudyVO">
+	SELECT * FROM STUDYROOM1 WHERE SNO=#{sno}
+	</select> 
+	 
+	<select id="getStudyRoom1" resultType="StudyVO">
+	SELECT * FROM STUDYROOM1 WHERE STUDY_NAME=#{study_name}
+	</select> 
+	
+	<!-- 동적 테이블 생성 -->
+	<select id="create_bTable" parameterType="HashMap">
+		${create_bTable}
+	</select>
+	<select id="create_bSequence" parameterType="HashMap">
+		${create_bSequence}
+	</select>
+	<select id="create_rTable" parameterType="HashMap">
+		${create_rTable}
+	</select>
+	<select id="create_rSequence" parameterType="HashMap">
+		${create_rSequence}
+	</select>
+	<select id="create_fTable" parameterType="HashMap">
+		${create_fTable}
+	</select>
+	<select id="create_fsequence" parameterType="HashMap">
+		${create_fsequence}
+	</select>
+	<select id="create_like" parameterType="HashMap">
+		${create_like}
+	</select>
+	
+	
+	<!-- 동적 테이블 삭제 -->
+	<select id="drop_fsequence" parameterType="HashMap">
+		${drop_fsequence}
+	</select>
+	<select id="drop_fTable" parameterType="HashMap">
+		${drop_fTable}
+	</select>
+	<select id="drop_rSequence" parameterType="HashMap">
+		${drop_rSequence}
+	</select>
+	<select id="drop_rTable" parameterType="HashMap">
+		${drop_rTable}
+	</select>
+	<select id="drop_bSequence" parameterType="HashMap">
+		${drop_bSequence}
+	</select>
+	<select id="drop_bTable" parameterType="HashMap">
+		${drop_bTable}
+	</select>
+	<select id="drop_like" parameterType="HashMap">
+		${drop_like}
+	</select>
+	
+</mapper>

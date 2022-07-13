@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap')
+	;
+
+@font-face {
+	font-family: 'ChosunSg';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunSg.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'title';
+	src: url("${pageContext.request.contextPath}/resources/MindFont.otf")
+		format('opentype');
+}
+
+* {
+	margin: 0;
+	font-family: 'ChosunSg';
+	padding: 0;
+}
+
+.gongbooz {
+	color: #ffffff;
+	margin-bottom: 70px;
+	margin-top: 70px;
+	font-family: 'title', cursive;
+	font-size: 57px;
+	text-align: center;
+}
+
+.joinWrap {
+	margin: 100px auto;
+	/*가로너비*/
+	width: 730px;
+	/*높이만큼 늘어남*/
+	overflow: hidden;
+	padding-top: 50px;
+	padding-bottom: 100px;
+	/*글자의 정렬*/
+	text-align: center;
+}
+
+.join {
+	margin: 0 auto;
+	width: 700px;
+	box-shadow: 2px 5px 16px 0px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+	border: 1px solid #ddd;
+	padding-top: 30px;
+	padding-bottom: 70px;
+	overflow: hidden;
+	border-radius: 4px;
+	background: transparent;
+}
+
+.welcome {
+	margin-top: 30px;
+	margin-bottom: 70px;
+	color: #ffffff;
+	font-size: 24px;
+}
+
+.btn {
+	/*가로너비*/
+	width: 520px;
+	/*세로높이*/
+	height: 30px;
+	/*글자크기*/
+	font-size: 14px;
+	/*테두리없음*/
+	border: none;
+	border-radius: 4px;
+	margin-top: 20px;
+	background-color: #FFFFFF;
+	color: #4C4C4C;
+	border: none;
+	font-weight: bold;
+}
+
+.btn:hover {
+	background-color: #E1E1E1;
+}
+#cancel {
+	/*가로너비*/
+	width: 520px;
+	/*세로높이*/
+	height: 30px;
+	/*글자크기*/
+	font-size: 14px;
+	/*테두리없음*/
+	border: none;
+	border-radius: 4px;
+	margin-top: 20px;
+	background-color: #FFFFFF;
+	color: #4C4C4C;
+	border: none;
+	font-weight: bold;
+}
+
+#cancel:hover {
+	background-color: #E1E1E1;
+}
+
+.form-control {
+	/*가로너비*/
+	width: 470px;
+	/*세로높이*/
+	height: 40px;
+	/*안쪽여백*/
+	padding-left: 20px;
+	padding-right: 20px;
+	/*테두리 스타일*/
+	border: none;
+	background: transparent;
+	color: white;
+	font-size: 14px;
+	border-bottom: 1px solid #ddd;
+}
+
+.form-control1 {
+	/*가로너비*/
+	width: 400px;
+	/*세로높이*/
+	height: 40px;
+	/*안쪽여백*/
+	padding-left: 20px;
+	padding-right: 20px;
+	/*테두리 스타일*/
+	border: none;
+	background: transparent;
+	color: white;
+	font-size: 14px;
+	border-bottom: 1px solid #ddd;
+}
+
+.form-control::placeholder {
+	color: #ddd;
+	font-weight: bold;
+}
+
+.form-control1::placeholder {
+	color: #ddd;
+	font-weight: bold;
+}
+
+.idChk {
+	/*가로너비*/
+	width: 70px;
+	/*세로높이*/
+	height: 30px;
+	/*글자크기*/
+	font-size: 12px;
+	/*글자색상*/
+	color: #4C4C4C;
+	/*배경색상*/
+	background-color: #FFFFFF;
+	/*테두리없음*/
+	border: none;
+	border-radius: 4px;
+	font-weight: bold;
+}
+
+.idChk:hover {
+	background-color: #E1E1E1;
+}
+
+.mail_wrap {
+	margin-left: 90px;
+}
+
+.mail_input {
+	width: 500px;
+	/*세로높이*/
+	height: 40px;
+	/*테두리 스타일*/
+	border: none;
+	background: transparent;
+	color: white;
+	font-size: 14px;
+	border-bottom: 1px solid #ddd;
+	margin-right: 170px;
+	padding-left: 20px;
+}
+
+.mail_input::placeholder {
+	color: #ddd;
+}
+
+.mail_check_wrap {
+	border: 1px solid #ddd;
+	width: 300px;
+	padding-top: 20px;
+	border-radius: 4px;
+	padding-right: 20px;
+	font-size: 14px;
+	margin-bottom: 40px;
+}
+
+.mail_check_input_box {
+	/*가로너비*/
+	width: 240px;
+	/*세로높이*/
+	height: 30px;
+	/*바깥쪽 여백*/
+	margin-top: 20px;
+	/*테두리 스타일*/
+	border: none;
+	background: transparent;
+	color: white;
+	font-size: 14px;
+	border-bottom: 1px solid #ddd;
+	margin-left: 30px;
+}
+
+#mail_check_input_box_false {
+	background-color: #808080;
+	opacity: 0.3;
+}
+
+#mail_check_input_box_true {
+	border: none;
+	background: transparent;
+}
+
+.mail_check_input {
+	width: 240px;
+	/*세로높이*/
+	height: 30px;
+	/*  /*안쪽여백*/
+	padding-left: 20px;
+	/*바깥쪽 여백*/ */
+	margin-top: 30px;
+	/*테두리 스타일*/
+	border: none;
+	background: transparent;
+	color: white;
+	font-size: 12px;
+	border-bottom: 1px solid #ffffff;
+}
+
+.mail_check_button {
+	width: 170px;
+	/*세로높이*/
+	height: 20px;
+	/*글자크기*/
+	font-size: 12px;
+	/*글자색상*/
+	color: #4C4C4C;
+	/*배경색상*/
+	background-color: #ffffff;
+	/*테두리없음*/
+	border: none;
+	border-radius: 4px;
+	padding-top: 4px;
+	margin-left: 30px;
+	font-weight: bold;
+}
+
+.mail_check_button:hover {
+	background-color: #E1E1E1;
+}
+
+/* float 속성 해제 */
+.clearfix {
+	clear: both;
+}
+
+label {
+	color: #ffffff;
+}

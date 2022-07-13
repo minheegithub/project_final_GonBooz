@@ -1,0 +1,48 @@
+@charset "EUC-KR";
+
+@font-face {
+    font-family: 'title';
+    src: url('../MindFont.otf') format('opentype');
+}
+
+	*{word-break: keep-all;} /*단어 끊김 방지*/
+	*:focus{outline: none;}/*클릭시 테두리 삭제*/
+	
+	button{ border-color: transparent;     background-color: transparent;
+    		width: 25px;	 margin-right:20px;		background-image: none;}
+	
+	#title{font-family: 'title', serif;		color: #FFFFFF;		font-size:70px;
+			text-align: center;		margin-left: 35%; margin-right: 35%;	cursor:pointer;}
+		
+	.menu2{margin-left: 10%;	display: inline-block;	text-align: center;}
+	
+	
+	.default{display: inline-block;	padding: 5px;	margin-right: 10px;
+				color: #FFFFFF; font-family: '나눔고딕', sans-serif;}	
+	
+	.box{background-color: white;	color: #212121;		border-radius:10%; }
+	
+	.underline{text-decoration: none;	cursor:pointer;		position: relative;}	/*탭 밑줄 애니메이션*/
+	.underline::after {
+	  bottom: 0;	height: 2px;		left: 50%;	  width: 0;
+	  content: "";	display: block;		position: absolute;
+	  background: #FFFFFF;
+	  transition: width 0.1s ease 0s, left 0.1s ease 0s;
+	}
+	.underline:hover::after { width: 100%; 	left: 0; }
+	
+	svg{fill:white;}	/*음악 컨트롤러 아이콘 스타일*/
+	#headericon{margin-right:30%; margin-left: 10%; text-align: center;	display: inline;}
+	
+	#volume{margin: 0px; padding-right: 25px;}
+	
+
+	#volumeslider {display: inline-block;	width: 80px;}	/*볼륨바 스타일*/
+	#volumeslider .ui-slider-handle {	background: white;	border: none;	/*볼륨바 thumb 모양*/
+		width: 10px;	height: 10px;	margin: 0; }
+	.ui-slider-horizontal { height:2px;	 margin-bottom: 8px;	border: none;		/*볼륨바 전체 모양*/
+							 -webkit-appearance: none;	-moz-appearance: none;	appearance: none;}
+	#volumeslider .ui-widget-content { border: 0px; height: 2px;}	/*?*/
+	
+	#volumeslider:hover {visibilty: visible;}
+	
