@@ -78,7 +78,7 @@
 				<script>
 					location.href="${pageContext.request.contextPath}/member/login.do";
 				</script>
-</c:if>
+	</c:if>
 	
 	<!-- <section id="container"> -->
 		 <div class="joinWrap"> 

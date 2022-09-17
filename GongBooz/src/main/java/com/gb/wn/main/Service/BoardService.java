@@ -1,11 +1,7 @@
 package com.gb.wn.main.Service;
 
-
-
-
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -46,8 +42,10 @@ public interface BoardService {
 		public void gzDelete(BoardVO boardVO) throws Exception;
 		
 		//by최민희, 내아이디로 추천했는지 확인
-		public int findlike(LikeVO likeVO);
+		public int findlike(LikeVO likeVO) throws Exception;
 		
-		public int likeInsert(LikeVO likeVO);
+		public int likeInsert(LikeVO likeVO) throws Exception;
 		
+		//스터디룸에서 해당 스터디게시판 최신글 3개 목록 미리보기
+		public List<BoardVO> getThreeList(BoardVO boardVO) throws Exception;
 }

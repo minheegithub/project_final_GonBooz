@@ -116,28 +116,33 @@ public class BoardServiceImpl implements BoardService {
 		}
 
 		@Override
-		public BoardVO gongziView(BoardVO boardVO) {
+		public BoardVO gongziView(BoardVO boardVO) throws Exception {
 			bdao.gongziHit(boardVO);
 			return bdao.gongziView(boardVO);
 		}
 
 		@Override
-		public void gzDelete(BoardVO boardVO) {
+		public void gzDelete(BoardVO boardVO) throws Exception {
 			bdao.gzDelete(boardVO);
 			
 		}
 
 		@Override
-		public int findlike(LikeVO likeVO) {
+		public int findlike(LikeVO likeVO) throws Exception  {
 			return bdao.findLike(likeVO);
 		}
 
 		@Override
-		public int likeInsert(LikeVO likeVO) {
+		public int likeInsert(LikeVO likeVO) throws Exception  {
 			
 			bdao.likeInsert(likeVO);
 			bdao.UpdatelikeCnt(likeVO);
 			return 0;
+		}
+		//스터디룸에서 해당 스터디게시판 최신글 3개 목록 미리보기
+		@Override
+		public List<BoardVO> getThreeList(BoardVO boardVO) throws Exception {
+			return bdao.getThreeList(boardVO);
 		}
 
 }

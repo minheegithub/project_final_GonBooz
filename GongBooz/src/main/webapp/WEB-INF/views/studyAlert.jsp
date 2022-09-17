@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
+<%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -10,94 +10,24 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<link href="${path}/resources/css/studyroomMain.css" rel="stylesheet"/>
+<link href="${path}/resources/css/studyRoom/studyroomMain.css" rel="stylesheet"/>
+<link href="${path}/resources/css/studyRoom/studyAlert.css" rel="stylesheet"/>
+
 <meta charset="UTF-8">
 <%@ page import="java.net.URLEncoder" %>
 <title>스터디 입장</title>
-</head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 <style>
 @font-face {
 	font-family: 'title';
 	src: url("${pageContext.request.contextPath}/resources/MindFont.otf")
 		format('opentype');
 }
-
-#name {
-	color: white;
-	margin: 0 auto;
-	width: 200px;
-	font-family: 'Poor Story', cursive;
-}
-
-#button {
-	margin: 0 auto;
-}
-
-#guide {
-	width: 670px;
-	margin: 0px auto;
-	padding-top: 70px;
-	text-align: center;
-}
-
-#enter {
-	backgroun-color: white;
-	margin-top: 30px;
-	width: 87px;
-	height: 34px;
-	border-radius: 5px;
-	font-size: 19px;
-	transition-duration: 0.4s;
-	border: none;
-}
-
-#enter:hover {
-	background-color: #E1E1E1;
-}
-
-.modal-body {
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	box-shadow: 2px 5px 16px 0px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-	width: 700px;
-	margin: 0 auto;
-	padding-top: 100px;
-	padding-bottom: 70px;
-	padding-left: 30px;
-	margin-top: 30px;
-	text-align: center;
-	font-family: 'Poor Story', cursive;
-}
-
-.gongbooz {
-	color: #ffffff;
-	margin-top: 70px;
-	font-family: 'title', cursive;
-	font-size: 40px;
-}
-
-.room_name {
-	color: #fff;
-	font-size: 21px;
-	font-weight: bold;
-	margin-bottom: 17px;
-	font-family: 'Poor Story', cursive;
-}
-
-.img {
-	width: 70px;
-	margin-left: 300px;
-}
-
-.img img {
-	display: block;
-	width: 100%;
-	border-radius: 3px;
-}
 </style>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+
 <body>
 
 		<!--header title  -->
