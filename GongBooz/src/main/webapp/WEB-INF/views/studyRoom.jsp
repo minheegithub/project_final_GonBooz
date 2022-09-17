@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,8 @@ p {
 }
 
 #text {
-	margin-left: 100px;
+	margin-left: 100px;  
+	
 }
 
 #btn {
@@ -45,25 +47,59 @@ p {
 }
 
 .boardBtn {
-	/* border: 1px solid gray; */
 	font-size: 18px;
-	/* background: none; */
 	border-radius: 4px;
 	color: #fff;
 	padding-right: 10px;
-	padding-left: 10px;
+	padding-left: 10px; *
 	margin-bottom: 10px;
-	margin-top: 10px;
+	margin-top: 10px; 
 	border: none;
 	background-color: #3c3a3a;
+	margin-left:210px;
+	
 }
 
 .boardBtn:hover {
-	/* background-color: #fff; */
 	background-color: #4C4C4C;
-	/* color: black; */
 	color:#fff;
 	border: none;
+}
+
+/* 상하좌우 전부 안쪽 여백 주기 */
+#root {
+	padding: 20px;
+	width: 900px;
+	border-radius: 4px;
+	 margin: 10px auto; 
+	background: none;
+	border: 1px solid #ddd;
+}
+
+.gongzi th {
+	color: black;
+	background-color: rgba(255, 255, 255, 0.5);
+	text-align: center;
+	
+}
+
+.gongzi th, .gongzi td {
+	padding: 4px;
+	font-size:12px;
+}
+
+/* 리스트 전체 가운데 정렬 */
+.gongzi td {
+	text-align: center;
+	color:white;
+}
+#new {
+	background-color: #FF7012;
+	color: #fff;
+	font-size: 1px;
+}
+table{
+	margin: 1px auto;
 }
 </style>
 <meta charset="UTF-8">
@@ -135,13 +171,84 @@ p {
 				<c:set var="title1" value="e${studyVO.sno}" />
 			</c:when>
 		</c:choose>
+ 
+	</div>
+		<div id="root">
 		 <form name="enterBoard" action="board/boardList.do" method="get">
-			<button type="submit" class="boardBtn" id="board">${studyVO.study_name} 게시판 으로 가기(${studyVO.sno}번방) ▶</button>
+			<button type="submit" class="boardBtn" id="board">+&nbsp;"${studyVO.study_name}" 게시판 으로 바로 가기&nbsp;[${studyVO.sno}번방]</button>
 			<input type="hidden" value="${title1}" name="board_name">
 		 </form> 
-		 
+		<table class="gongzi">
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>등록일</th>
+				<th>추천수</th>
+				<th>조회수</th>
+			</tr>
+		 <c:forEach items="${gongziList}" var = "gzlist">
+		 	<tr>
+		 		<td style="border-bottom:1px solid #ddd;">
+						<img src="${pageContext.request.contextPath}/resources/img/gongzi.png"/>&nbsp;
+					</td>
+					<td style="border-bottom:1px solid #ddd;width:440px;">
+							${gzlist.title}
+						<jsp:useBean id="toDay" class="java.util.Date" /> 
+						<fmt:formatDate value="${toDay}" pattern="yyyy-MM-dd HH" var="today" />  
+						<fmt:parseDate value="${today}" pattern="yyyy-MM-dd HH" var="today1" /> 
+				 	    <fmt:parseNumber value="${today1.time / (1000*60*60)}" integerOnly="true" var="strDate"></fmt:parseNumber>
+						<fmt:parseDate value="${gzlist.regdate}" pattern="yyyy-MM-dd HH" var="writeDay" /> 
+				 	    <fmt:parseNumber value="${writeDay.time /(1000*60*60)}" integerOnly="true" var="writeDate"></fmt:parseNumber>
+						<c:if test="${strDate - writeDate < 24}">
+						&nbsp;<span id = "new">&nbsp;N&nbsp;</span>
+						</c:if> 
+					</td>
+					<td style="border-bottom:1px solid #ddd;">${gzlist.writer}</td>
+					<td style="border-bottom:1px solid #ddd;"><fmt:formatDate value="${gzlist.regdate}" pattern="yyyy-MM-dd" /></td>
+					<td style="border-bottom:1px solid #ddd;">-</td>
+					<td style="border-bottom:1px solid #ddd;">${gzlist.hit}</td>
+		 	</tr>
+		 </c:forEach>
+		 <c:forEach items="${getThreeList}" var = "list">
+			 <tr>
+				<!--글번호  -->
+				<td ><c:out value="${list.bno}"/></td>
+				<!--글제목  -->
+				<td class="tit">
+					<c:out value="${list.title}" /> 
+					<!--댓글갯수  -->
+					<c:if test="${list.recnt > 0}">
+						<span class="rep"> (${list.recnt})</span>
+					</c:if>  
+					
+					<!--24시간 new  -->
+					<fmt:parseDate value="${list.regdate}" pattern="yyyy-MM-dd HH" var="writeDay" /> 
+			 	    <fmt:parseNumber value="${writeDay.time /(1000*60*60)}" integerOnly="true" var="writeDate"></fmt:parseNumber>
+					<c:if test="${strDate - writeDate < 24}">
+					  &nbsp;<span id = "new">&nbsp;N&nbsp;</span>
+					</c:if> 
+					 <c:if test="${list.stored_file_name != 'n'}">
+					<img src="${pageContext.request.contextPath}/resources/img/clip.png"/> <span style="font-size:1px;">첨부파일</span>
+					 </c:if>
+				</td>
+				<!--글쓴이  -->
+				<td><c:out value="${list.writer}" /></td>
+				<!--날짜  -->
+				<td><fmt:formatDate value="${list.regdate}" pattern="yyyy-MM-dd HH:MM" />
+				</td>
+				<!--추천수  -->
+				<td><c:out value="${list.likecount}" /></td>
+				<!--조회수  -->
+				<td><c:out value="${list.hit}" /></td>
+			</tr> 
+		</c:forEach>
+		<tr>
+		<td><p>.........<p></td>
+		</tr>
+	</table>
+		
 	</div>
-	
 <%@ include file="chat.jsp" %>
 
 </body>
@@ -181,8 +288,5 @@ p {
 			})
 		
 		})
-		
 	
-		
-		
 	</script>

@@ -49,18 +49,21 @@ public interface BoardDAO {
 
 		public void gongziWrite(BoardVO boardVO) throws Exception;
 
-		public List<BoardVO> listGongzi();
+		public List<BoardVO> listGongzi() throws Exception;
 
-		public BoardVO gongziView(BoardVO boardVO);
+		public BoardVO gongziView(BoardVO boardVO) throws Exception;
 
-		public void gongziHit(BoardVO boardVO);
+		public void gongziHit(BoardVO boardVO) throws Exception;
 
-		public void gzDelete(BoardVO boardVO);
+		public void gzDelete(BoardVO boardVO) throws Exception;
 
-		public int findLike(LikeVO likeVO);
+		public int findLike(LikeVO likeVO) throws Exception;
 
-		public void likeInsert(LikeVO likeVO);
+		public void likeInsert(LikeVO likeVO) throws Exception;
 
-		public void UpdatelikeCnt(LikeVO likeVO);
+		public void UpdatelikeCnt(LikeVO likeVO) throws Exception;
+		
+		// 스터디룸에서 게시물 목록 미리보기
+		public List<BoardVO> getThreeList(BoardVO boardVO) throws Exception;
 
 }

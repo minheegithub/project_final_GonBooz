@@ -32,11 +32,11 @@
 			</div>
 			<div>
 				<label for="userId"></label>
-				<input type="text" id="userId" name="userid" class="box" value="spring">
+				<input type="text" id="userId" name="userid" class="box" value="minhee153" >
 			</div>
 			<div>
 				<label for="userPass"></label>
-				<input type="password" id="userPass" name="userpass" class="box" value="spring">
+				<input type="password" id="userPass" name="userpass" class="box" value="11111111" >
 			</div>
 			<div>
 				<button type="submit" class="btn">로그인</button>

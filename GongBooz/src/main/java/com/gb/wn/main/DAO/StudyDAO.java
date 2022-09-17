@@ -2,7 +2,9 @@ package com.gb.wn.main.DAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.gb.wn.main.board.boardVO.BoardVO;
 import com.gb.wn.main.study.studyVO.StudyVO;
 
 //mapper interface 참조. dao에 선언한 것은 controller를 도와주기 위해.
@@ -38,6 +40,8 @@ public interface StudyDAO {
 	void drop_bSequence(HashMap<String, String> map);
 	void drop_bTable(HashMap<String, String> map);
 	void drop_like(HashMap<String, String> map);
+	
+
 	
 }
 //+ mybatis는 sqlsession 등 객체가 무조건 중요

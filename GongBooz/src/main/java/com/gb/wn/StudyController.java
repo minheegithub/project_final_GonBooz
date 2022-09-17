@@ -1,6 +1,8 @@
 package com.gb.wn;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,11 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.gb.wn.boardUtil.CreateTable;
+import com.gb.wn.main.Service.BoardService;
 import com.gb.wn.main.Service.StudyService;
+import com.gb.wn.main.board.boardVO.BoardVO;
 import com.gb.wn.main.study.studyVO.StudyVO;
 
 @Controller
@@ -22,6 +23,9 @@ public class StudyController {
 //	private static final int HashMap = 0;
 	@Resource(name="StudyService")
 	private StudyService studyService;
+	
+	@Resource(name="boardService")
+	private BoardService boardkaja;
 
 	//전체 스터디 목록 조회
 /*	@RequestMapping(value="/studyAll.do")
@@ -112,7 +116,34 @@ public class StudyController {
 		System.out.println("등록!");
 		studyService.updateStudy(studyVO);
 		StudyVO aa=studyService.getStudyRoom(studyVO);
+		System.out.println(aa.toString());
+		
+		String study_tag = aa.getStudy_tag();
+		int sno = aa.getSno();
+		String b_name = "";
+		if(study_tag.equals("외국어")){
+			b_name = "l";
+		}else if(study_tag.equals("면접")){
+			b_name = "i";
+		}else if(study_tag.equals("스터디윗미")){
+			b_name = "s";
+		}else if(study_tag.equals("대외활동")){
+			b_name = "a";
+		}else if(study_tag.equals("자격증")){
+			b_name = "c";
+		}else if(study_tag.equals("공무원")){
+			b_name = "p";
+		}else {
+			b_name = "e";
+		}
+		
+		BoardVO bvo = new BoardVO();
+		bvo.setB_name(b_name+sno);
+		//스터디룸에서 해당 스터디게시판 최신글 3개 목록 미리보기
+		model.addAttribute("getThreeList", boardkaja.getThreeList(bvo));
 		model.addAttribute("studyVO", aa);
+		model.addAttribute("gongziList", boardkaja.listGongzi());
+		
 		return "studyRoom";
 	}
 	
@@ -120,8 +151,34 @@ public class StudyController {
 	@RequestMapping(value="/enterRoom.do", method = RequestMethod.POST)
 	public String enterRoom(StudyVO studyVO, Model model) throws Exception{
 		System.out.println("입장!");
-		StudyVO aa=studyService.getStudyRoom(studyVO);
+		StudyVO aa = studyService.getStudyRoom(studyVO);
+		System.out.println(aa.toString());
+		
+		String study_tag = aa.getStudy_tag();
+		int sno = aa.getSno();
+		String b_name = "";
+		if(study_tag.equals("외국어")){
+			b_name = "l";
+		}else if(study_tag.equals("면접")){
+			b_name = "i";
+		}else if(study_tag.equals("스터디윗미")){
+			b_name = "s";
+		}else if(study_tag.equals("대외활동")){
+			b_name = "a";
+		}else if(study_tag.equals("자격증")){
+			b_name = "c";
+		}else if(study_tag.equals("공무원")){
+			b_name = "p";
+		}else {
+			b_name = "e";
+		}
+		
+		BoardVO bvo = new BoardVO();
+		bvo.setB_name(b_name+sno);
+		//스터디룸에서 해당 스터디게시판 최신글 3개 목록 미리보기
+		model.addAttribute("getThreeList", boardkaja.getThreeList(bvo));
 		model.addAttribute("studyVO", aa);
+		model.addAttribute("gongziList", boardkaja.listGongzi());
 		
 		return "studyRoom";
 	}

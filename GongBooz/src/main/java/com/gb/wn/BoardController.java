@@ -1,7 +1,6 @@
 package com.gb.wn;
 
 import java.io.File;
-import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
