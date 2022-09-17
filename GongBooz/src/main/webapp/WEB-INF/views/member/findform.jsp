@@ -54,7 +54,6 @@
 					<p class="welcome">아이디 찾기</p>
 				</div>
 				<div>
-					
 					<p>
 						<label>Email</label><br>
 						<input class="input" type="text" id="email" name="membermail" required>

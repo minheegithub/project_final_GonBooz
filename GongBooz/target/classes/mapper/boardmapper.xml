@@ -120,6 +120,7 @@
 		 WHERE BNO = #{bno}
 	</select>
 	
+	
 	 <insert id="likeInsert" parameterType="com.gb.wn.main.board.boardVO.LikeVO">
 		INSERT INTO ${b_name}_LIKE(
 			BNO,
@@ -260,5 +261,13 @@
 		  FROM GZ_BOARD
 		 WHERE GNO = #{gno}
 	</delete>
+	
+	<!--  스터디룸에서 해당 스터디게시판 최신글 3개 목록 미리보기  -->
+	<select id="getThreeList" resultType="boardVO" parameterType="boardVO">
+		SELECT LAST.* FROM
+		(SELECT BNO,TITLE, WRITER, REGDATE, HIT, RECNT, LIKECOUNT, ROWNUM RNUM
+		FROM ${b_name}_BOARD ORDER BY BNO DESC ) LAST
+		WHERE LAST.RNUM BETWEEN 1 AND 3
+	</select> 
 </mapper>
  
