@@ -33,6 +33,9 @@ public interface StudyDAO {
 	//스터디네임을 파라미터로 스터디룸 정보 가져오기
 	StudyVO getStudyRoom1(StudyVO studyVO1);
 	
+	//스터디방 개설자 이메일 가져오기
+	StudyVO getStudyEmail(StudyVO studyVO1);
+	
 	void drop_fsequence(HashMap<String, String> map);
 	void drop_fTable(HashMap<String, String> map);
 	void drop_rSequence(HashMap<String, String> map);

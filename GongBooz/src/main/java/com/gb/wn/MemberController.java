@@ -1,6 +1,7 @@
 package com.gb.wn;
 
 import java.io.PrintWriter;
+
 import java.util.Random;
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -40,13 +41,7 @@ public class MemberController {
 	public String loginView(){
 		return "member/login";
 	}
-	
-	
-/*	@RequestMapping(value="member/deleteOK.do")
-	public String deleteOK(){
-		return "member/deleteOK";
-	}*/
-	
+
 	@RequestMapping(value="member/myinfo.do")
 	public String infoView() throws Exception{
 		return "member/myinfo";

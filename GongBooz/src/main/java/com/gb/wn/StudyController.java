@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,14 +30,10 @@ public class StudyController {
 	
 	@Resource(name="boardService")
 	private BoardService boardkaja;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 
-	//전체 스터디 목록 조회
-/*	@RequestMapping(value="/studyAll.do")
-	public String studyAll(Model model) throws Exception{
-		ArrayList <StudyVO> alist = studyService.getAllStudy();
-		model.addAttribute("alist",alist);
-		return "studyAll"; //studyAll.jsp에서 전부 출력
-	}*/
 	@RequestMapping(value="/studyAll.do", method = RequestMethod.GET)
 	public String studyAll(Model model, HttpServletRequest req) throws Exception{
 		String swiper = req.getParameter("swiper");
@@ -44,21 +44,17 @@ public class StudyController {
 		model.addAttribute("selectTag","all");
 		return "studyAll"; //studyAll.jsp에서 전부 출력
 	}
-	
-//	@RequestMapping(value="/studyInsertForm.do")
-//	public String studyInsertForm() throws Exception{
-//		
-//		System.out.println("방 개설하러 왔니?");
-//		return "studyInsertForm";
-//	}
-	
+
 	@RequestMapping(value="/studyInsert.do", method = RequestMethod.GET)
 	public String studyInsert(StudyVO studyVO, Model model, HttpServletRequest req) throws Exception {
 		String swiper = req.getParameter("swiper");
+		
+		System.out.println("방개설 : "+studyVO.toString());
 		studyService.insertStudy(studyVO);		
 		model.addAttribute("swiper", swiper);
 		return "redirect:/studyAll.do";
 	}
+	
 	@RequestMapping(value="/studyfilter.do", method = RequestMethod.GET)
 	public String studyfilter(StudyVO studyVO, Model model, @ModelAttribute("swiper") String swiper) throws Exception {
 		System.out.println(studyVO.toString());
@@ -66,7 +62,6 @@ public class StudyController {
 			ArrayList <StudyVO> alist = studyService.getAllStudy();
 			model.addAttribute("alist",alist);
 		}else {
-			
 			ArrayList <StudyVO> svo_tag = studyService.getStudy_tag(studyVO);
 			model.addAttribute("alist",svo_tag);
 		}
@@ -113,10 +108,42 @@ public class StudyController {
 	//by최민희 studyalert창에서 새롭게 등록할때 들어오는 메소드
 	@RequestMapping(value="/studyRoom.do", method = RequestMethod.POST)
 	public String studyRoom(StudyVO studyVO, Model model) throws Exception{
-		System.out.println("등록!");
+		
 		studyService.updateStudy(studyVO);
 		StudyVO aa=studyService.getStudyRoom(studyVO);
-		System.out.println(aa.toString());
+		
+		/* 이메일 보내기 */
+		String setFrom = "minhehot@naver.com"; ///////////////////////////////////자신의 이메일 입력
+		String toMail = aa.getStudy_email();
+		String title = "[GongBooZ] 개설하신 스터디 룸에 새로운 멤버가 등록했습니다.";
+		String content = "";
+		
+		content += "<div align='center' style='width: 440px; \r\n" + 
+				"	overflow: hidden;\r\n" + 
+				"	padding: 30px;\r\n" + 
+				"	padding-top: 50px;\r\n" + 
+				"	padding-bottom: 50px;\r\n" + 
+				"	text-align: center; \r\n" + 
+				"	border-radius: 4px;\r\n" + 
+				"	box-shadow: 2px 5px 5px 0px, 5px 5px 5px 5px rgba(0, 0, 0, 0);margin: 0px auto;'>";
+		content += "<h3>GoonBooZ 스터디룸 개설자를 위한 발송 이메일 입니다.<br><br>";
+		content += "개설하신 스터디룸 ["+aa.getStudy_name()+"] 방에  <br>새로운 멤버가 등록했습니다.</h3>";
+		content += "<p>등록 멤버 아이디 <br><br> ";
+		content += aa.getStudy_member().substring(1) + "</p></div>";
+
+		try {
+			
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
+			helper.setFrom(setFrom);
+			helper.setTo(toMail);
+			helper.setSubject(title);
+			helper.setText(content,true);
+			mailSender.send(message);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		String study_tag = aa.getStudy_tag();
 		int sno = aa.getSno();

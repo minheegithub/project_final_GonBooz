@@ -168,12 +168,12 @@ public class StudyServiceImpl implements StudyService{
 
 	@Override
 	public StudyVO getStudyRoom(StudyVO studyVO) {	
-		System.out.println("service impl"+studyVO.getSno());
 		return studyroom.getStudyRoom(studyVO);
 	}
-
-
-
 	
-	
+	@Override
+	public StudyVO getStudyEmail(StudyVO studyVO) {	
+		return studyroom.getStudyEmail(studyVO);
+	}
+
 }

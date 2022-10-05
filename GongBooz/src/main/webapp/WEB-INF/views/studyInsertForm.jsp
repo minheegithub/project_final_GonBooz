@@ -27,7 +27,7 @@
 			<form action="studyInsert.do" method="get">
 		
 			<input type="hidden" value="${member.userid}" name="open_id"/>
-			<%-- <input type="hidden" value="${member.userid}" name="study_member"/>  --%>
+			<input type="hidden" value="${member.membermail}" name="study_email"/> 
 			✔스터디 이름 &nbsp;&nbsp;&nbsp;<input type="text" name="study_name" required><p></p>
 			✔스터디 종류&nbsp;&nbsp;&nbsp;<select name="study_tag" required>
 				<option value="외국어">외국어</option>

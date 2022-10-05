@@ -15,6 +15,7 @@ public interface StudyService {
 	void updateStudy(StudyVO stuyVO); //잔여 인원 업데이트.
 	void outStudy(StudyVO stuyVO); //잔여 인원 업데이트.
 	StudyVO getStudyRoom(StudyVO studyVO);
+	StudyVO getStudyEmail(StudyVO studyVO);
 	
 	
 	//service와 dao가 내용이 같다.

@@ -10,11 +10,20 @@ public class StudyVO {
 	private String region; //오프라인 장소
 	private int max_number; //인원 제한수 
 	private int cur_number; //현재 참여인원
+	private String study_email;//개설자 이메일
 	
 	public StudyVO() {};
 
+	public String getStudy_email() {
+		return study_email;
+	}
+
+	public void setStudy_email(String study_email) {
+		this.study_email = study_email;
+	}
+
 	public StudyVO(int sno, String open_id, String study_member, String study_name, String study_tag, String region,
-		int max_number, int cur_number) {
+		int max_number, int cur_number, String study_email) {
 		super();
 		this.sno = sno;
 		this.open_id = open_id;
@@ -24,6 +33,7 @@ public class StudyVO {
 		this.region = region;
 		this.max_number = max_number;
 		this.cur_number = cur_number;
+		this.study_email = study_email;
 	}
 
 	public int getSno() {
@@ -108,8 +118,10 @@ public class StudyVO {
 	public String toString() {
 		return "StudyVO [sno=" + sno + ", open_id=" + open_id + ", study_member=" + study_member + ", study_name="
 				+ study_name + ", study_tag=" + study_tag + ", region=" + region + ", max_number=" + max_number
-				+ ", cur_number=" + cur_number + "]";
+				+ ", cur_number=" + cur_number + ", study_email=" + study_email + "]";
 	}
+
+	
 	
 	
 	

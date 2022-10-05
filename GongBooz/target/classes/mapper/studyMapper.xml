@@ -39,8 +39,8 @@
 	    	SELECT STUDYROOM_SEQ.NEXTVAL FROM DUAL
 	  </selectKey>
 	 
-	 INSERT INTO STUDYROOM1(SNO,OPEN_ID,STUDY_NAME,STUDY_TAG, REGION, MAX_NUMBER)
-	 VALUES (#{sno},#{open_id},#{study_name},#{study_tag},#{region},#{max_number}) 
+	 INSERT INTO STUDYROOM1(SNO,OPEN_ID,STUDY_NAME,STUDY_TAG, REGION, MAX_NUMBER, STUDY_EMAIL)
+	 VALUES (#{sno},#{open_id},#{study_name},#{study_tag},#{region},#{max_number},#{study_email}) 
 	</insert>
 	
 		
@@ -65,6 +65,11 @@
 	 
 	<select id="getStudyRoom1" resultType="StudyVO">
 	SELECT * FROM STUDYROOM1 WHERE STUDY_NAME=#{study_name}
+	</select>
+	
+	<!--스터디방 개설지 이메일 가져오기--> 
+	<select id="getStudyEmail" resultType="StudyVO">
+	SELECT STUDY_EMAIL FROM STUDYROOM1 WHERE SNO=#{sno}
 	</select> 
 	
 	<!-- 동적 테이블 생성 -->
