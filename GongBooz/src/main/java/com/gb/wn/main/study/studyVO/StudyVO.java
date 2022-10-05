@@ -11,6 +11,7 @@ public class StudyVO {
 	private int max_number; //인원 제한수 
 	private int cur_number; //현재 참여인원
 	private String study_email;//개설자 이메일
+	private String board_name;//동적 테이블 생성 게시판 이름
 	
 	public StudyVO() {};
 
@@ -23,7 +24,7 @@ public class StudyVO {
 	}
 
 	public StudyVO(int sno, String open_id, String study_member, String study_name, String study_tag, String region,
-		int max_number, int cur_number, String study_email) {
+		int max_number, int cur_number, String study_email, String board_name) {
 		super();
 		this.sno = sno;
 		this.open_id = open_id;
@@ -34,6 +35,7 @@ public class StudyVO {
 		this.max_number = max_number;
 		this.cur_number = cur_number;
 		this.study_email = study_email;
+		this.board_name = board_name;
 	}
 
 	public int getSno() {
@@ -113,16 +115,21 @@ public class StudyVO {
 	public void setCur_number(int cur_number) {
 		this.cur_number = cur_number;
 	}
+	
+
+	public String getBoard_name() {
+		return board_name;
+	}
+
+	public void setBoard_name(String board_name) {
+		this.board_name = board_name;
+	}
 
 	@Override
 	public String toString() {
 		return "StudyVO [sno=" + sno + ", open_id=" + open_id + ", study_member=" + study_member + ", study_name="
 				+ study_name + ", study_tag=" + study_tag + ", region=" + region + ", max_number=" + max_number
-				+ ", cur_number=" + cur_number + ", study_email=" + study_email + "]";
+				+ ", cur_number=" + cur_number + ", study_email=" + study_email + ", board_name=" + board_name + "]";
 	}
-
-	
-	
-	
 	
 }

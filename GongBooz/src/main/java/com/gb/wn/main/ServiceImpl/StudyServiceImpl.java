@@ -39,6 +39,8 @@ public class StudyServiceImpl implements StudyService{
 	@Override
 	public void insertStudy(StudyVO studyVO1) {
 		
+		System.out.println("인서트"+studyVO1.toString());
+		
 		//스터디방 개설
 		studyroom.insertStudy(studyVO1);	
 		
@@ -66,6 +68,8 @@ public class StudyServiceImpl implements StudyService{
 		}
 	
 		String table_name = study_tag+sno;
+		studyVO.setBoard_name(table_name);
+		studyroom.insertB_name(studyVO);//sno파라미터 동적 테이블 이름 저장
 		
 		HashMap<String,String> map = null;
 		map = create_table.create_bTable(table_name);

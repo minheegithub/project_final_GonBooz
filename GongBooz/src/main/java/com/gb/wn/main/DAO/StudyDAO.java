@@ -44,6 +44,8 @@ public interface StudyDAO {
 	void drop_bTable(HashMap<String, String> map);
 	void drop_like(HashMap<String, String> map);
 	
+	void insertB_name(StudyVO studyVO);
+	
 
 	
 }

@@ -43,6 +43,10 @@
 	 VALUES (#{sno},#{open_id},#{study_name},#{study_tag},#{region},#{max_number},#{study_email}) 
 	</insert>
 	
+	<insert id="insertB_name">
+	 UPDATE STUDYROOM1 SET BOARD_NAME = #{board_name} WHERE sno=#{sno} 
+	</insert>
+	
 		
 	<!--특정 스터디를 삭제한다. -->
 	<delete id="deleteStudy">

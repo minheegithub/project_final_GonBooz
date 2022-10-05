@@ -70,7 +70,6 @@
 			</form>
 				<div class="form-group has-feedback" id="btns">
 					<button class="btn btn-success" type="button" id="submit" class="btn">회원가입</button><br>
-					<!-- <button class="cencle btn btn-danger" type="button" class="btn">취소</button> -->
 					<button class="cancel" type="button" id="cancel">취소</button>
 				</div>
 	</div>

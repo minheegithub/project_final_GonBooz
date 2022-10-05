@@ -24,7 +24,6 @@ import com.gb.wn.main.study.studyVO.StudyVO;
 @Controller
 public class StudyController {
 	
-//	private static final int HashMap = 0;
 	@Resource(name="StudyService")
 	private StudyService studyService;
 	
@@ -48,8 +47,6 @@ public class StudyController {
 	@RequestMapping(value="/studyInsert.do", method = RequestMethod.GET)
 	public String studyInsert(StudyVO studyVO, Model model, HttpServletRequest req) throws Exception {
 		String swiper = req.getParameter("swiper");
-		
-		System.out.println("방개설 : "+studyVO.toString());
 		studyService.insertStudy(studyVO);		
 		model.addAttribute("swiper", swiper);
 		return "redirect:/studyAll.do";
@@ -74,7 +71,6 @@ public class StudyController {
 		String filter = req.getParameter("filter");
 		String search = req.getParameter("search");	
 		String swiper = req.getParameter("swiper");
-		System.out.println(swiper);
 		
 		String whatSearched = filter+"|"+search;
 		model.addAttribute("whatSearched", whatSearched);
@@ -144,28 +140,9 @@ public class StudyController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		String study_tag = aa.getStudy_tag();
-		int sno = aa.getSno();
-		String b_name = "";
-		if(study_tag.equals("외국어")){
-			b_name = "l";
-		}else if(study_tag.equals("면접")){
-			b_name = "i";
-		}else if(study_tag.equals("스터디윗미")){
-			b_name = "s";
-		}else if(study_tag.equals("대외활동")){
-			b_name = "a";
-		}else if(study_tag.equals("자격증")){
-			b_name = "c";
-		}else if(study_tag.equals("공무원")){
-			b_name = "p";
-		}else {
-			b_name = "e";
-		}
-		
+
 		BoardVO bvo = new BoardVO();
-		bvo.setB_name(b_name+sno);
+		bvo.setB_name(aa.getBoard_name());
 		//스터디룸에서 해당 스터디게시판 최신글 3개 목록 미리보기
 		model.addAttribute("getThreeList", boardkaja.getThreeList(bvo));
 		model.addAttribute("studyVO", aa);
@@ -177,34 +154,14 @@ public class StudyController {
 	//by최민희, studyalert창에서 기존 멤버가 입장할때 들어오는 메소드
 	@RequestMapping(value="/enterRoom.do", method = RequestMethod.POST)
 	public String enterRoom(StudyVO studyVO, Model model) throws Exception{
-		System.out.println("입장!");
 		StudyVO aa = studyService.getStudyRoom(studyVO);
 		System.out.println(aa.toString());
-		
-		String study_tag = aa.getStudy_tag();
-		int sno = aa.getSno();
-		String b_name = "";
-		if(study_tag.equals("외국어")){
-			b_name = "l";
-		}else if(study_tag.equals("면접")){
-			b_name = "i";
-		}else if(study_tag.equals("스터디윗미")){
-			b_name = "s";
-		}else if(study_tag.equals("대외활동")){
-			b_name = "a";
-		}else if(study_tag.equals("자격증")){
-			b_name = "c";
-		}else if(study_tag.equals("공무원")){
-			b_name = "p";
-		}else {
-			b_name = "e";
-		}
-		
+
 		BoardVO bvo = new BoardVO();
-		bvo.setB_name(b_name+sno);
+		bvo.setB_name(aa.getBoard_name());
 		//스터디룸에서 해당 스터디게시판 최신글 3개 목록 미리보기
-		model.addAttribute("getThreeList", boardkaja.getThreeList(bvo));
 		model.addAttribute("studyVO", aa);
+		model.addAttribute("getThreeList", boardkaja.getThreeList(bvo));
 		model.addAttribute("gongziList", boardkaja.listGongzi());
 		
 		return "studyRoom";
@@ -237,6 +194,12 @@ public class StudyController {
 		studyService.outStudy(reSave);
 		if(userId.equals(aa.getOpen_id())) {
 			aa = studyService.getStudyRoom(studyVO);//by최민희, 파라미터 sno
+			BoardVO bvo = new BoardVO();
+			bvo.setB_name(aa.getBoard_name());
+			//스터디룸에서 해당 스터디게시판 최신글 3개 목록 미리보기
+			model.addAttribute("studyVO", aa);
+			model.addAttribute("getThreeList", boardkaja.getThreeList(bvo));
+			model.addAttribute("gongziList", boardkaja.listGongzi());
 			model.addAttribute("studyVO", aa);
 			//by최민희, 강퇴일경우 스터디 방으로 다시 돌아감
 			return "studyRoom";
@@ -252,7 +215,6 @@ public class StudyController {
 	//진짜로 참여할 것인지 묻는다.
 	@RequestMapping(value="/studyAlert.do",method = RequestMethod.POST)
 	public String studyAlert(StudyVO studyVO, Model model) throws Exception{
-		
 		StudyVO aa=studyService.getStudyRoom(studyVO);
 		model.addAttribute("studyVO",aa);
 		return "studyAlert";
@@ -261,7 +223,6 @@ public class StudyController {
 	//by최민희, 스터디방 삭제
 	@RequestMapping(value="/deleteStudy.do",method = RequestMethod.GET)
 	public String deleteStudy(StudyVO studyVO, Model model, HttpServletRequest req) throws Exception{
-		System.out.println("게시판 삭제 : "+studyVO.toString());
 		String swiper = req.getParameter("swiper");
 		studyService.deleteStudy(studyVO);
 		model.addAttribute("swiper", swiper);
