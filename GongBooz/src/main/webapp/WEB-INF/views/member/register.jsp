@@ -136,7 +136,7 @@
 					},
 					success : function(result) {
 						if (result >= 1) {
-							$("#email_check").html("중복된 이메일이 있습니다.(계속 진행 하셔도 됩니다.)");
+							$("#email_check").html("중복된 이메일이 있습니다.");
 						} else {
 							$("#email_check").html("");
 						}

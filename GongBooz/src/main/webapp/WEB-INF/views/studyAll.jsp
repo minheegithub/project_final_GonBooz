@@ -220,7 +220,7 @@
 	<a href="${pageContext.request.contextPath}/studyAll.do?swiper=n" id="gallery">스터디룸 한눈에 보기&nbsp;>></a>
 	</c:if>
 	<c:if test = "${swiper == 'n'}">
-	<a href="${pageContext.request.contextPath}/studyAll.do?swiper=y" id="gallery">이미지 갤러리 화면&nbsp;>></a>
+	<a href="${pageContext.request.contextPath}/studyAll.do?swiper=y" id="gallery"> <<&nbsp;이미지 갤러리 화면 </a>
 	</c:if>
 	</div>
 	
