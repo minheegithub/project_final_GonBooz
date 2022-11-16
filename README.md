@@ -9,12 +9,18 @@
 <br>
 <ul>
 <li>
-<b>각 아이콘 클릭 시 테마 별 음악과 배경화면 전환. 페이지 이동시 전환된 화면은 유지</b>
+<p><b>아이콘을 클릭하면 테마 별 음악과 배경화면이 전환</b></p>
+</li>
+<li>
+<p><b>페이지를 이동하여도 선택된 음악과 배경화면은 백그라운드에서 유지</b></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/106230507/202229386-3d81eefc-0fab-4c86-a2e7-dd55efac63d9.png" width="400"></p>
 <br>
 </li>
 <li>
-<b>스터디룸 개설과 동시에 동적 게시판 생성. 개설자 자격으로 스터디룸 삭제시 동적 게시판은 DB에서 제거가 된다.</b><br><br>
+<p><b>스터디룸 개설과 동시에 동적 게시판 생성</b></p>
+</li>
+<li>
+<p><b>개설자 자격으로 스터디룸 삭제시 해당 동적 게시판 테이블들은 DB에서 제거가 된다.</b></p>
 <div align="center">
 <img src="https://user-images.githubusercontent.com/106230507/202241410-9b169578-aa5a-49ee-8e8a-189c71ce998b.png" width="150">
 <img src="https://user-images.githubusercontent.com/106230507/202239959-b21eac64-f299-4e82-a4ac-1585b16ef25b.png" width="400">
